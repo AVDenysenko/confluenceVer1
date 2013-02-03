@@ -1,0 +1,22 @@
+/* 
+    Document   : footerstyle
+    Created on : Jan 4, 2013, 10:58:38 PM
+    Author     : andrew
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.aspacef {
+    position: inherit;
+}
+
+.inftext {
+    font-family: Verdana, sans-serif;
+    font-style:italic;
+    font-size:15px;
+    position:absolute;
+    left:40%;
+    top: 30%;
+    padding:0px;
+    margin-top: 0;
+}

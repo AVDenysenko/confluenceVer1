@@ -1,0 +1,78 @@
+/* 
+    Document   : heederstyle
+    Created on : Jan 4, 2013, 5:21:23 PM
+    Author     : andrew
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.readtitle {
+    font-family: Verdana, sans-serif;
+    font-style:oblique;
+    font-weight:bold;
+    font-size:22px;
+    text-indent:1em;
+    padding: 5px;
+    margin: 10px;
+    color: yellow;
+    
+}
+
+.readtext {
+    font-family: Verdana, sans-serif;
+    font-style:normal;
+    text-indent:1.1em;
+    border:2px solid gold;
+    padding: 5px;
+    margin: 10px;
+    
+    color: gold;
+}
+
+#treediv {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.readbutton {
+    width: 100px;
+    margin: 15px;
+}
+
+.outertable {     
+    width: 100%;
+    position: static;
+}
+
+#headertd {
+    height: 100px;
+    background: crimson;
+    color: aliceblue;
+    border: 4px solid black;
+}
+
+#footertd {
+    height: 100px;
+    background: crimson;
+    color: aliceblue;
+    border: 4px solid black;
+    position: relative;
+}
+
+.contenttd {
+    border-left: 4px solid black;
+    border-right: 4px solid black;
+}
+
+#treetd {
+    width: 30%;
+    border-right: 4px solid black;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: khaki;
+    position: static;
+}
+
+

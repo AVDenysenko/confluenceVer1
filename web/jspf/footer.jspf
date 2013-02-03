@@ -1,0 +1,6 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<link rel="stylesheet" href="/confluence/css/footerstyle.css" type="text/css"> 
+<div class="aspacef">
+    <p class="inftext">Information about application</p>
+</div>

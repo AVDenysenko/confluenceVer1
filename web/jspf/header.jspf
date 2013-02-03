@@ -1,0 +1,24 @@
+<%@ page pageEncoding="UTF-8" import="java.util.*, java.sql.*, com.homecredit.studyproject.SqlQuery"%>
+<%
+    String mainTitle = null;
+        SqlQuery sq = new SqlQuery();
+        ResultSet rs = sq.executeStatement("SELECT * FROM title_of_page WHERE page_name = 'read'");            
+        ResultSetMetaData rsm = rs.getMetaData();            
+        Map<String, String> pageText = new HashMap<String, String>();
+        int i = 0;
+        while (rs.next()) {
+            pageText.put(rs.getString("name"), rs.getString("text"));
+        }
+        sq.closeConnection();
+        if (pageText.containsKey("main_tittle"))
+            mainTitle = pageText.get("main_tittle");       
+%>
+<link rel="stylesheet" href="/confluence/css/headerstyle.css" type="text/css">
+<div class="aspaceh">
+    <p class="apptitle"><%=mainTitle%></p>
+    <a class="alogin" href="login">log in</a>
+</div>
+    
+
+
+
