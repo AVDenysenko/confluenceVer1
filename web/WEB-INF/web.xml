@@ -10,7 +10,7 @@
     </resource-ref>
     <servlet>
         <servlet-name>ReadPageServlet</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
+        <jsp-file>/reading.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>ReadPageServlet</servlet-name>

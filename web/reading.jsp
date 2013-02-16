@@ -63,7 +63,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="/confluence/css/indexstyle.css" type="text/css">
+        <link rel="stylesheet" href="/confluence/css/readingstyle.css" type="text/css">
         <link rel="stylesheet" href="/confluence/css/tree.css" type="text/css">
         <script type="text/javascript">
             <c:import url="/javascript/tree.js" />
