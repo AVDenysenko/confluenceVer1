@@ -1,16 +1,16 @@
 create database confluence;
 use confluence;
 
-create table tree_contence(id int primary key, name varchar(40), parent int, order_number int unique);
-insert into tree_contence values(1, 'Document1',0,1);
-insert into tree_contence values(2, 'Document2',0,4);
-insert into tree_contence values(3, 'Document3',1,2);
-insert into tree_contence values(4, 'Document4',2,5);
-insert into tree_contence values(5, 'Document5',4,6);
-insert into tree_contence values(6, 'Document6',4,7);
-insert into tree_contence values(7, 'Document7',3,3);
-insert into tree_contence values(8, 'Document8',6,8);
-insert into tree_contence values(9, 'Document9',4,9);
+create table tree_contens(id int primary key, name varchar(40), parent int, order_number int unique);
+insert into tree_contens values(1, 'Document1',0,1);
+insert into tree_contens values(2, 'Document2',0,4);
+insert into tree_contens values(3, 'Document3',1,2);
+insert into tree_contens values(4, 'Document4',2,5);
+insert into tree_contens values(5, 'Document5',4,6);
+insert into tree_contens values(6, 'Document6',4,7);
+insert into tree_contens values(7, 'Document7',3,3);
+insert into tree_contens values(8, 'Document8',6,8);
+insert into tree_contens values(9, 'Document9',4,9);
 
 create table posted_text(id int primary key, name varchar(40), text varchar(30000));
 insert into posted_text values(1, 'first page', 'sjjkkcjjkocolksoljkcio');
