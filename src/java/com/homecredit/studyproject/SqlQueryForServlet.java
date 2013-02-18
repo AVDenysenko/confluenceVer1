@@ -18,28 +18,31 @@ import javax.sql.DataSource;
  *
  * @author andrew
  */
-public class SqlQuery {
+public class SqlQueryForServlet implements SqlStatement{
+
     private Context env = null; 
     private DataSource pool = null;
     private Connection connection = null;
     private Statement stat = null;
     private ResultSet rs = null;
 
-    public SqlQuery() {
+    public SqlQueryForServlet() throws ServletException {
         try {
             env = (Context) new InitialContext().lookup("java:comp/env");
             pool = (DataSource) env.lookup("jdbc/confluence");
-            //if (pool == null) throw new ServletException("'confluence' is an uncnown DataSource");        
-        } catch (NamingException ne) {            
+            if (pool == null) throw new ServletException("'confluence' is an uncnown DataSource");        
+        } catch (NamingException ne) {
+            throw new ServletException(ne.getMessage());
         }
     }
     
-    public ResultSet executeStatement(String sql) {        
+    public ResultSet executeStatement(String sql) throws ServletException {        
         try {
             connection = pool.getConnection();
             stat = connection.createStatement();
             rs = stat.executeQuery(sql);            
-        } catch (SQLException e) {            
+        } catch (Exception e) {
+            throw new ServletException(e.getMessage());
         }
         return rs;
     }

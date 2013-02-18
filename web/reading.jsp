@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, java.sql.*, com.homecredit.studyproject.*"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@ taglib uri="/tlds/classicTags.tld" prefix="ex" %>
  <%
         String title = null;
         String text = null;
@@ -83,22 +84,7 @@
                         <tr>
                             <td id="treetd" valign="top">
                                 <div id="treediv">
-                                    <div onclick="tree_toggle(arguments[0])" id="treev">
-                                        <%
-                                            String javascript = "";
-                                            for (ContensElement celor : cel) {
-                                                javascript = javascript + celor.getJavaScriptCodeOfElement();
-                                        
-                                            }
-                                        %><script type="text/javascript">
-                                            rootel = document.getElementById('treev');
-                                            ulm = document.createElement('ul');
-                                            ulm.setAttribute('id', 'ul0');
-                                            ulm.setAttribute('class', 'Container');
-                                            rootel.appendChild(ulm);
-                                            <%=javascript%></script><%
-                                            %>                               
-                                    </div>
+                                    <ex:simpleTag/>
                                 </div>
                             </td>
                             <td valign="top">

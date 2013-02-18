@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>classictags</short-name>
+  <uri>/tlds/classicTags</uri>
+  
+    <tag>
+        <name>classicTag</name>
+        <tag-class>com.homecredit.studyproject.tags.TreeViewClassicTag</tag-class>
+        <body-content >tagdependent</body-content >
+    </tag>
+
+    <tag>
+        <name>simpleTag</name>
+        <tag-class>com.homecredit.studyproject.tags.TreeViewSimpleTag</tag-class>
+        <body-content >tagdependent</body-content >
+    </tag>
+</taglib>
