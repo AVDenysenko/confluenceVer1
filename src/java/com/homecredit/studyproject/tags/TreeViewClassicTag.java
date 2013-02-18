@@ -19,8 +19,19 @@ import javax.servlet.jsp.tagext.TagSupport;
  *
  * @author andrew
  */
-public class TreeViewClassicTag extends TagSupport{    
-    /* Process Start Tag */
+public class TreeViewClassicTag extends TagSupport{ 
+    
+    private String javascript = "";
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    /* Process Start Tag. This method forms treeview*/
     public int doStartTag() throws JspTagException {
         SqlQuery sqText = new SqlQuery();
         List<ContensElement> cel = new ArrayList<ContensElement>();
@@ -73,31 +84,32 @@ public class TreeViewClassicTag extends TagSupport{
         } catch (SQLException e) {
         }
 
-        String javascript = "";
         for (ContensElement celor : cel) {
             javascript = javascript + celor.getJavaScriptCodeOfElement();                                        
         }
-        
-        try {
-            JspWriter out = pageContext.getOut();            
+        return EVAL_BODY_INCLUDE;
+    }
+    
+    /* Process End Tag. Outputs result */
+    public int doEndTag() throws JspTagException {
+         try {
+            JspWriter out = pageContext.getOut();
+            if (this.title != null) {
+                out.print("<p style='margin-bottom:0px;font-size:18px;font-weight:bold;font-style:oblique;'>" + this.title + "</p>");
+            }
             out.print(" <div onclick='tree_toggle(arguments[0])' id='treev'> ");
             out.print(" <script type='text/javascript'> ");
             out.print(" rootel = document.getElementById('treev'); ");
+            out.print(" ulm = document.createElement('ul'); ");
             out.print(" ulm.setAttribute('id', 'ul0'); ");
             out.print(" ulm.setAttribute('class', 'Container'); ");
-            out.print(" rootel.appendChild(ulm); ");
-            //out.print(" li1 = document.createElement('li');ulm.appendChild(li1); ");
+            out.print(" rootel.appendChild(ulm); ");          
             out.print(javascript);
             out.print(" </script> ");
-            out.print(" </div> ");
+            out.print(" </div> ");            
         } catch (IOException e) {
             throw new JspTagException(e.toString());
         }
-        return EVAL_BODY_INCLUDE;
-    }
-    /* Process End Tag */
-
-    public int doEndTag() throws JspTagException {
         return EVAL_PAGE;
     }
 }

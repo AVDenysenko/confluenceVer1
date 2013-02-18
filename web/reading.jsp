@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, java.sql.*, com.homecredit.studyproject.*"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<%@ taglib uri="/tlds/classicTags.tld" prefix="ex" %>
+<%@ taglib uri="/tlds/tags.tld" prefix="ex" %>
  <%
         String title = null;
         String text = null;
@@ -84,7 +84,7 @@
                         <tr>
                             <td id="treetd" valign="top">
                                 <div id="treediv">
-                                    <ex:simpleTag/>
+                                    <ex:treeViewClassicTag title="Documents..."/>
                                 </div>
                             </td>
                             <td valign="top">

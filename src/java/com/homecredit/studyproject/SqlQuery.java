@@ -11,11 +11,11 @@ import java.sql.Statement;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.servlet.ServletException;
 import javax.sql.DataSource;
 
 /**
- *
+ * Class can perform simple mysql select for any dinamic expression
+ * Conformed especially for use in jsp
  * @author andrew
  */
 public class SqlQuery {

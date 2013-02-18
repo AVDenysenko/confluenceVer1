@@ -15,7 +15,8 @@ import javax.servlet.ServletException;
 import javax.sql.DataSource;
 
 /**
- *
+ * Class can perform simple mysql select for any dinamic expression
+ * Performed for use in java class
  * @author andrew
  */
 public class SqlQueryForServlet implements SqlStatement{

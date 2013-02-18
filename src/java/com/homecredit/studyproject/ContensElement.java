@@ -7,6 +7,7 @@ package com.homecredit.studyproject;
 /**
  *
  * @author andrew
+ * for single element retrieved from database (ul or li) defines full javascript code
  */
 public class ContensElement {
     private int id;
