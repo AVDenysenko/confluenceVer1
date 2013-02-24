@@ -7,60 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*, java.sql.*, com.homecredit.studyproject.*"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
 <%@ taglib uri="/tlds/tags.tld" prefix="ex" %>
- <%
-        String title = null;
-        String text = null;
-        SqlQuery sqText = new SqlQuery();
-        ResultSet rsText = sqText.executeStatement("SELECT * FROM posted_text WHERE name = 'first page'");            
-        ResultSetMetaData rsmText = rsText.getMetaData();            
-        while (rsText.next()) {
-            title = rsText.getString("name");
-            text = rsText.getString("text");
-        }
-        List<ContensElement> cel = new ArrayList<ContensElement>();
-        ResultSet celbase = sqText.executeStatement("SELECT * FROM tree_contens ORDER BY order_number");
-        while (celbase.next()) {
-            ContensElement ce = new ContensElement();
-            ce.setId(celbase.getInt("id"));
-            ce.setName(celbase.getString("name"));
-            ce.setParentId(celbase.getInt("parent"));
-            ce.setOrderNumber(celbase.getInt("order_number"));
-            ce.setHasChildren(false);
-            ce.setIsLast(true);
-            ce.setHasUl(true);
-            if (ce.getParentId() == 0) ce.setIsRoot(true); else ce.setIsRoot(false);
-            cel.add(ce);
-        }        
-        sqText.closeConnection(); 
-        List<ContensElement> celCopy = cel;
-        for (ContensElement celor:cel) {
-            int ulRefference = 0;
-            int k = 0;
-            for (ContensElement celorCopy:celCopy) {
-                if (celor.getId() == celorCopy.getParentId()) {
-                    celor.setHasChildren(true);
-                }
-                if (celor.getParentId() == celorCopy.getParentId() && k == 0) {
-                    ulRefference = celorCopy.getId();
-                    k++;
-                }
-                if (celor.getParentId() == celorCopy.getParentId() && celor.getOrderNumber() < celorCopy.getOrderNumber()) {
-                    celor.setIsLast(false);
-                }
-                if (celor.getParentId() == celorCopy.getParentId() && celor.getOrderNumber() > celorCopy.getOrderNumber()) {
-                    celor.setHasUl(false);
-                }                
-            }
-            if (celor.isIsRoot()) {
-                celor.setUlRef(0);
-            } else if (celor.isHasUl()) {
-                celor.setUlRef(celor.getId());
-            } else {
-                celor.setUlRef(ulRefference);
-            }
-        }
- %>   
+<%@ taglib uri="/tlds/elfunctions.tld" prefix="elu" %>
 <!DOCTYPE html>
+<c:set var="title" value="first page"/>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -92,12 +41,12 @@
                                     <table id="readtable">
                                         <tr>
                                             <td>
-                                                <p class="readtitle"><%=title%></p>
+                                                <p class="readtitle">${title}</p>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p class="readtext"><%=text%></p>
+                                                <p class="readtext">${elu:getPageTextByTitle(title)}</p>
                                             </td>
                                         </tr>
                                         <tr>

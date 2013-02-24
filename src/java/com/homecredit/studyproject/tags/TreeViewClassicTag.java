@@ -21,7 +21,7 @@ import javax.servlet.jsp.tagext.TagSupport;
  */
 public class TreeViewClassicTag extends TagSupport{ 
     
-    private String javascript = "";
+    private String javascript;
     private String title;
 
     public String getTitle() {
@@ -33,6 +33,7 @@ public class TreeViewClassicTag extends TagSupport{
     }
     /* Process Start Tag. This method forms treeview*/
     public int doStartTag() throws JspTagException {
+        javascript = "";
         SqlQuery sqText = new SqlQuery();
         List<ContensElement> cel = new ArrayList<ContensElement>();
         try {
@@ -106,7 +107,7 @@ public class TreeViewClassicTag extends TagSupport{
             out.print(" rootel.appendChild(ulm); ");          
             out.print(javascript);
             out.print(" </script> ");
-            out.print(" </div> ");            
+            out.print(" </div> ");          
         } catch (IOException e) {
             throw new JspTagException(e.toString());
         }
